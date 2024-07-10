@@ -12,13 +12,15 @@ public class NoteApp extends JFrame
     private final HashMap<JButton, Notiz> notizenMap;
     private JRadioButton bigText;
     private JRadioButton smalText;
+    private JButton lastClickedButton; // Referenz zum zuletzt geklickten Button
+
     //Konstruktor
     NoteApp()
     {
         JFrame frame = new JFrame("NoteLote");
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("PersonenFormular");
+        frame.setTitle("NoteBox");
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setSize(Toolkit.getDefaultToolkit().getScreenSize().width/3,
@@ -45,7 +47,7 @@ public class NoteApp extends JFrame
 
 
         ausgabeTextArea.setFont(new Font("Roboto", Font.BOLD, 16));
-        ausgabeTextArea.setBackground(new Color(134, 187, 226));
+        ausgabeTextArea.setBackground(new Color(134, 187, 226,226));
         ausgabeTextArea.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         ausgabeTextArea.setLineWrap(true);
         ausgabeTextArea.setWrapStyleWord(true);
@@ -110,9 +112,9 @@ public class NoteApp extends JFrame
         buttonPanel.setBackground(Color.darkGray);
 
 
-        JButton addButton = new JButton("+");
+        JButton addButton = new JButton("       ➕       ");
         addButton.setFont(new Font("Roboto", Font.BOLD, 19));
-        addButton.setSize(new Dimension(140, 60));
+        addButton.setSize(new Dimension(140, 70));
         addButton.setBackground(new Color(255, 255, 255)); // Weiß
         buttonPanel.add(addButton);
 
@@ -172,6 +174,7 @@ public class NoteApp extends JFrame
             @Override
             public void actionPerformed(ActionEvent e) {
                 showNotiz(anotherButton);
+                changeButtonTextColor(anotherButton);
             }
         });
 
@@ -199,6 +202,14 @@ public class NoteApp extends JFrame
             titelText.setText(notiz.getTitel());
             ausgabeTextArea.setText(notiz.getInhalt());
         }
+    }
+
+    private void changeButtonTextColor(JButton button) {
+        if (lastClickedButton != null) {
+            lastClickedButton.setForeground(Color.BLACK); // Setzt die Textfarbe des zuletzt geklickten Buttons zurück
+        }
+        button.setForeground(new Color(50, 100, 150)); // Ändert die Textfarbe des aktuellen Buttons
+        lastClickedButton = button; // Aktualisiert die Referenz zum zuletzt geklickten Button
     }
 
 
