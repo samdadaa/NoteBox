@@ -33,13 +33,15 @@ public class NoteApp extends JFrame
 
         JPanel titelPanel = new JPanel();
         titelPanel.setLayout(new BorderLayout(5, 5)); // Abstand zwischen Komponenten
-
-        JLabel titelLabel = new JLabel("Titel");
+        titelPanel.setBackground(new Color(255, 200, 200));
+        JLabel titelLabel = new JLabel(" titel");
         titelLabel.setFont(new Font("Roboto", Font.BOLD, 19));
         titelLabel.setPreferredSize(new Dimension(50, 30));
+        titelLabel.setForeground(Color.black);
 
         titelText.setPreferredSize(new Dimension(200, 30));
         titelText.setFont(new Font("Roboto", Font.BOLD, 19));
+        titelText.setBackground(new Color(153, 216, 230));
         titelText.setEnabled(false);
 
         titelPanel.add(titelLabel, BorderLayout.WEST);
@@ -47,7 +49,7 @@ public class NoteApp extends JFrame
 
 
         ausgabeTextArea.setFont(new Font("Roboto", Font.BOLD, 16));
-        ausgabeTextArea.setBackground(new Color(134, 187, 226,226));
+        ausgabeTextArea.setBackground(new Color(255, 255, 220));
         ausgabeTextArea.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         ausgabeTextArea.setLineWrap(true);
         ausgabeTextArea.setWrapStyleWord(true);
@@ -56,16 +58,16 @@ public class NoteApp extends JFrame
 
         JPanel speicherPanel = new JPanel();
         speicherPanel.setLayout(new FlowLayout());
-        speicherPanel.setBackground(Color.darkGray);
+        speicherPanel.setBackground(new Color(153, 216, 230));
 
-        JButton speicherButton = new JButton("speichern");
+        JButton speicherButton = new JButton("save");
         speicherButton.setFont(new Font("Roboto", Font.BOLD, 14));
         speicherButton.setPreferredSize(new Dimension(100, 30)); // Setzt die bevorzugte Größe des Buttons
 
 
          bigText = new JRadioButton("BigText");
         bigText.setFont(new Font("Roboto",Font.BOLD,13));
-        bigText.setForeground(Color.white);
+        bigText.setForeground(Color.black);
         bigText.setPreferredSize(new Dimension(100,30));
         bigText.setSelected(false);
         bigText.addActionListener(new ActionListener() {
@@ -80,7 +82,7 @@ public class NoteApp extends JFrame
 
         smalText = new JRadioButton("SmallText");
         smalText.setFont(new Font("Roboto",Font.BOLD,13));
-        smalText.setForeground(Color.white);
+        smalText.setForeground(Color.black);
         smalText.setPreferredSize(new Dimension(100,30));
         smalText.setSelected(true);
         smalText.addActionListener(new ActionListener() {
@@ -109,7 +111,7 @@ public class NoteApp extends JFrame
 
 
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS)); // Vertikales Layout für Buttons mit Abstand
-        buttonPanel.setBackground(Color.darkGray);
+        buttonPanel.setBackground(new Color(153, 216, 230));
 
 
         JButton addButton = new JButton("       ➕       ");
@@ -157,7 +159,7 @@ public class NoteApp extends JFrame
 
     private void addNewButton() {
         JButton anotherButton = new JButton();
-        anotherButton.setFont(new Font("Roboto", Font.BOLD, 19));
+        anotherButton.setFont(new Font("Roboto", Font.BOLD, 16));
         anotherButton.setPreferredSize(new Dimension(140, 60));
         anotherButton.setBackground(new Color(255, 255, 255)); // Weiß
         buttonPanel.add(anotherButton);
@@ -208,7 +210,7 @@ public class NoteApp extends JFrame
         if (lastClickedButton != null) {
             lastClickedButton.setForeground(Color.BLACK); // Setzt die Textfarbe des zuletzt geklickten Buttons zurück
         }
-        button.setForeground(new Color(50, 100, 150)); // Ändert die Textfarbe des aktuellen Buttons
+        button.setForeground(new Color(84, 147, 226,200)); // Ändert die Textfarbe des aktuellen Buttons
         lastClickedButton = button; // Aktualisiert die Referenz zum zuletzt geklickten Button
     }
 
